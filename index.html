@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 10 Gaming Consoles</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ff3030; /* Dark background */
+            color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease; /* Smooth background color change */
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #5c0b0b; /* Dark header */
+            animation: headerColorChange 5s infinite alternate; /* Animation for color change */
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Chart Container */
+        .chart-container {
+            width: 80%;
+            margin: 40px auto;
+            background: #541f1f; /* Dark background for chart container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(31, 1, 1, 0.5);
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f78282; /* Footer background */
+            margin-top: 20px;
+            transition: background-color 0.3s ease; /* Smooth footer color transition */
+        }
+
+        footer:hover {
+            background-color: #444444; /* Hover effect */
+        }
+
+        /* Header color change animation */
+        @keyframes headerColorChange {
+            0% {
+                background-color: #5712c0; /* Red */
+            }
+            25% {
+                background-color: #33FF57; /* Green */
+            }
+            50% {
+                background-color: #3357FF; /* Blue */
+            }
+            75% {
+                background-color: #F1C40F; /* Yellow */
+            }
+            100% {
+                background-color: #1f1d1d; /* Red */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Top 10 Best-Selling Gaming Consoles</h1>
+    </header>
+    <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+    </div>
+    <footer>
+        &copy; 2025 Gaming Insights
+    </footer>
+    <script>
+        // Data for the chart
+        const labels = [
+            'PS2', 'Nintendo DS', 'Game Boy', 'PS4', 'Nintendo Switch', 
+            'PS1', 'Wii', 'Game Boy Advance', 'Xbox 360', 'PS3'
+        ];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Units Sold (in Millions)',
+                data: [155, 154, 118, 117, 125, 102, 101, 81, 85, 87],
+                backgroundColor: '#FFFFFF', // Initial color
+                borderColor: '#FFFFFF',
+                borderWidth: 1
+            }]
+        };
+
+        // Chart Configuration
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Render Chart
+        const salesChart = new Chart(
+            document.getElementById('salesChart'),
+            config
+        );
+    </script>
+</body>
+</html>
